@@ -22,6 +22,14 @@ function ready() {
         let i = Math.floor(Math.random() * 16);
         console.log(i)
         nums = data[i]
-        document.write(nums)
         console.log(nums)
+
+        document.querySelector("#num0").innerHTML = nums[0];
+        document.querySelector("#num1").innerHTML = nums[1];
+        document.querySelector("#num2").innerHTML = nums[2];
+        document.querySelector("#num3").innerHTML = nums[3];
+}
+
+function calc(num1, num2, op){
+    
 }
