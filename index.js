@@ -1,4 +1,5 @@
 let nums = []
+var op
 
 let data = [
     [8,6,2,2],
@@ -28,6 +29,25 @@ function ready() {
         document.querySelector("#num1").innerHTML = nums[1];
         document.querySelector("#num2").innerHTML = nums[2];
         document.querySelector("#num3").innerHTML = nums[3];
+}
+
+function getOp(operator) {
+    if(operator === '+'){
+        op = '+'
+        console.log(op)
+    }
+    if(operator === '-'){
+        op = '-'
+        console.log(op)
+    }
+    if(operator === '/'){
+        op = '/'
+        console.log(op)
+    }
+    if(operator === '*'){
+        op = '*'
+        console.log(op)
+    }
 }
 
 function calc(num1, num2, op){
