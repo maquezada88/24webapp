@@ -1,5 +1,10 @@
-let nums = []
-var op
+let flag = false;
+let nums = [];
+let counter = 1;
+let number1= null;
+let number2 = null;
+let op = null;
+
 
 let data = [
     [8,6,2,2],
@@ -20,36 +25,97 @@ let data = [
     ]
 
 function ready() {
-        let i = Math.floor(Math.random() * 16);
+        flag = true;
+        let i = Math.floor(Math.random() * 15);
         console.log(i)
         nums = data[i]
         console.log(nums)
-
         document.querySelector("#num0").innerHTML = nums[0];
         document.querySelector("#num1").innerHTML = nums[1];
         document.querySelector("#num2").innerHTML = nums[2];
         document.querySelector("#num3").innerHTML = nums[3];
+
+}
+
+function calc(n1, op, n2){
+
+    if(op ==='+'){ 
+        console.log(Number(n1)+ Number(n2))
+        return Number(n1)+ Number(n2)
+    }
+    else if (op === '-'){
+        console.log(Number(n1)-Number(n2))
+        return Number(n1)-Number(n2)
+    }
+    else if (op === '*'){
+            console.log(Number(n1)*Number(n2))
+            return Number(n1) * Number(n2)
+    }
+    else if (op === '/'){
+        { 
+            console.log(Number(n1)/Number(n2))
+            return Number(n1)/Number(n2)
+        }
+    }
+    else console.log('COULD NOT MATCH AN OP IN CALC FUNCTION')
+
+
+}
+
+function setNum(number){
+    if(flag === true){
+        if((counter % 2) === 1){
+            counter++;
+            console.log('first number of operation is being selected')
+            var id = number.id;
+            console.log('id:', id)
+            number1 = document.getElementById(id).textContent;
+            console.log('number 1:', number1)
+            document.getElementById(id).disabled = true;
+        }
+        else if((counter % 2) === 0){
+            counter++;
+            console.log('second number of operation is being selected')
+            var id = number.id;
+            console.log('id:', id)
+            number2 = document.getElementById(id).textContent;
+            console.log('number 2:', number2)
+            var sum = calc(number1, op, number2);
+            var el = document.getElementById(id)
+            document.getElementById(id).textContent = sum;
+        }
+
+        if(counter === 7 && sum === 24){
+            alert("congrats!");
+        }
+    }
+    else console.log('user needs to click ready')
 }
 
 function getOp(operator) {
-    if(operator === '+'){
-        op = '+'
-        console.log(op)
+    if((flag === true) && (counter%2)===0){
+        if(number1 !== null){
+            if(operator === '+'){
+                op = '+'
+                console.log(op)
+            }
+            else if(operator === '-'){
+                op = '-'
+                console.log(op)
+            }
+            else if(operator === '/'){
+                op = '/'
+                console.log(op)
+            }
+            else if(operator === '*'){
+                op = '*'
+                console.log(op)
+            }
+            else console.log('cannot match op in getop')
+        }
+        else{
+            console.log('number1 is null')
+        }
     }
-    if(operator === '-'){
-        op = '-'
-        console.log(op)
-    }
-    if(operator === '/'){
-        op = '/'
-        console.log(op)
-    }
-    if(operator === '*'){
-        op = '*'
-        console.log(op)
-    }
-}
-
-function calc(num1, num2, op){
-    
+    else console.log('user needs to click ready')
 }
