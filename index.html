@@ -1,40 +1,39 @@
-  <!DOCTYPE html>
-<html>
-  <head>
-    <title>24 Game</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script  src="index.js"></script>
-  </head>
-
-
-  <body>
-    <header>
-      <h1 >My Website</h1>
-    </header>
- 
-    <main>
-        <input type="button" onclick="ready()" value="ready">
-    </main>
-
-        <p>
-          Welcome to 24! Use a sequence of available math operations to get 24!
-        </p>
-            <div class="numbers">
-              <button id="num0" >0</button>
-              <button id="num1" >1</button>
-              <button id="num2" >2</button>
-              <button id="num3" >3</button>
-            </div>
-
-            <div class="ops">
-              <button id="add" onclick="getOp('+')">+</button>
-              <button id="sub" onclick="getOp('-')">-</button>
-              <button id="mult" onclick="getOp('*')">x</button>
-              <button id="div" onclick="getOp('/')">/</button>
-              <button id="eq">=</button>
-            </div>
-  </body>
-    <footer>
-      <p>Copyright © 2023 24 Website</p>
-    </footer>
-</html>
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <title>24 Game</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script  src="index.js"></script>
+    </head>
+  
+  
+    <body>
+      <header>
+        <h1 >My Website</h1>
+      </header>
+   
+      <main>
+          <input type="button" onclick="ready()" value="ready">
+      </main>
+  
+          <p>
+            Welcome to 24! Use a sequence of available math operations to get 24!
+          </p>
+              <div class="numbers">
+                <button id="num0" onclick="setNum(this)">0</button>
+                <button id="num1" onclick="setNum(this)">1</button>
+                <button id="num2" onclick="setNum(this)">2</button>
+                <button id="num3" onclick="setNum(this)">3</button>
+              </div>
+  
+              <div class="ops">
+                <button id="add" onclick="getOp('+')">+</button>
+                <button id="sub" onclick="getOp('-')">-</button>
+                <button id="mult" onclick="getOp('*')">x</button>
+                <button id="div" onclick="getOp('/')">/</button>
+              </div>
+    </body>
+      <footer>
+        <p>Copyright © 2023 24 Website</p>
+      </footer>
+  </html>
