@@ -4,6 +4,7 @@ let counter = 1;
 let number1= null;
 let number2 = null;
 let op = null;
+let opFlag = false;
 
 
 let data = [
@@ -34,6 +35,7 @@ function ready() {
         document.querySelector("#num1").innerHTML = nums[1];
         document.querySelector("#num2").innerHTML = nums[2];
         document.querySelector("#num3").innerHTML = nums[3];
+        document.getElementById('ready').disabled = true;
 
 }
 
@@ -72,8 +74,10 @@ function setNum(number){
             number1 = document.getElementById(id).textContent;
             console.log('number 1:', number1)
             document.getElementById(id).disabled = true;
+            operator = null;
+            opFlag = false;
         }
-        else if((counter % 2) === 0){
+        else if((counter % 2) === 0 && opFlag === true){
             counter++;
             console.log('second number of operation is being selected')
             var id = number.id;
@@ -83,25 +87,36 @@ function setNum(number){
             var sum = calc(number1, op, number2);
             var el = document.getElementById(id)
             document.getElementById(id).textContent = sum;
+            opFlag = false;
         }
 
-        if(counter === 7 && sum === 24){
-            alert("congrats!");
-        }
+        checkSum(counter, sum)
     }
     else console.log('user needs to click ready')
 }
 
-function getOp(operator) {
+function checkSum(counter, sum){
+    if(counter === 7 && sum === 24){
+        alert("congrats!");
+    }
+    else if(counter >= 7 && sum !== 24){
+        alert('Better luck next time')
+    }
+}
+
+function setOp(operator) {
     if((flag === true) && (counter%2)===0){
         if(number1 !== null){
+            opFlag = true;
             if(operator === '+'){
                 op = '+'
                 console.log(op)
+                
             }
             else if(operator === '-'){
                 op = '-'
                 console.log(op)
+                
             }
             else if(operator === '/'){
                 op = '/'
