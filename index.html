@@ -13,11 +13,14 @@
       </header>
    
       <main>
-          <input type="button" onclick="ready()" value="ready">
+          <input id ='ready' type="button" onclick="ready()" value="ready">
       </main>
   
           <p>
             Welcome to 24! Use a sequence of available math operations to get 24!
+          </p>
+          <p>
+            Click refresh to restart!
           </p>
               <div class="numbers">
                 <button id="num0" onclick="setNum(this)">0</button>
@@ -27,10 +30,10 @@
               </div>
   
               <div class="ops">
-                <button id="add" onclick="getOp('+')">+</button>
-                <button id="sub" onclick="getOp('-')">-</button>
-                <button id="mult" onclick="getOp('*')">x</button>
-                <button id="div" onclick="getOp('/')">/</button>
+                <button id="add" onclick="setOp('+')">+</button>
+                <button id="sub" onclick="setOp('-')">-</button>
+                <button id="mult" onclick="setOp('*')">x</button>
+                <button id="div" onclick="setOp('/')">/</button>
               </div>
     </body>
       <footer>
